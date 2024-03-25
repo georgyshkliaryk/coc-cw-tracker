@@ -1,0 +1,15 @@
+.clans {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.leftClan {
+  text-align: right;
+  width: 200px;
+}
+
+.rightClan {
+  text-align: left;
+  width: 200px;
+}
