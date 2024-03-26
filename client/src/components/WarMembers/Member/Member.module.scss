@@ -1,5 +1,7 @@
 .card {
-    border: 1px solid #000;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
     padding: 10px 15px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -7,6 +9,7 @@
     width: 100%;
     position: relative;
     outline: none;
+    border: none;
 
     &.cantAttack {
         background-color: #d9d9d9;
@@ -66,7 +69,7 @@
 
 .attack {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .attackInfo {
@@ -89,4 +92,11 @@
     width: 30px;
     height: 30px;
     margin-left: 5px;
+}
+
+.attacksTitle {
+    text-align: left;
+    color: grey;
+    font-weight: 700;
+    font-size: 12px;
 }

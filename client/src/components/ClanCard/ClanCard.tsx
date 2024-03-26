@@ -4,6 +4,7 @@ import styles from './ClanCard.module.scss';
 import { maxStarsPossible } from '../../constants/gameRelated';
 import starIcon from '../../assets/star.svg';
 import attackIcon from '../../assets/attack.svg';
+import desctructionIcon from '../../assets/desctruction.svg';
 import WarMembers from '../WarMembers/WarMembers';
 
 interface ClanCardProps extends Clan {
@@ -46,7 +47,10 @@ const ClanCard: FC<ClanCardProps> = ({
           {attacks}/{totalAttacks}
         </span>
       </div>
-      <div className={styles.percentage}>{destructionPercentage}%</div>
+      <div className={styles.percentage}>
+        <img src={desctructionIcon} className={styles.icon} />
+        {destructionPercentage}%
+      </div>
       {expEarned && <div>Exp earned: {expEarned}</div>}
       {!!(members?.length && opponents?.length) && <WarMembers members={members} opponents={opponents} />}
     </div>

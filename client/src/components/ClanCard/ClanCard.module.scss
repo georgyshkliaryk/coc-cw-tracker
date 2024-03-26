@@ -23,7 +23,8 @@
 }
 
 .stars,
-.attacks {
+.attacks,
+.percentage {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -38,11 +39,7 @@
 
 .title,
 .stars,
-.attacks {
-    justify-content: center;
-}
-
+.attacks,
 .percentage {
-    text-align: center;
-    margin-top: 5px;
+    justify-content: center;
 }

@@ -71,25 +71,28 @@ const Member: FC<MemberProps> = ({ name, mapPosition, attacks, townhallLevel, op
         </div>
       </div>
 
-      {!!attacks?.length &&
-        isExpanded &&
-        attacks.map((attack) => {
-          const defender = findMemberByTag(attack.defenderTag, opponentsGeneralData);
+      {!!attacks?.length && isExpanded && (
+        <>
+          <div className={styles.attacksTitle}>Attacks</div>
+          {attacks.map((attack) => {
+            const defender = findMemberByTag(attack.defenderTag, opponentsGeneralData);
 
-          return (
-            <div key={key(attack)} className={styles.attack}>
-              {defender?.mapPosition}. {defender?.name}
-              <div className={styles.attackInfo}>
-                <div>
-                  {attack.stars}
-                  <img src={starIcon} className={styles.attackIcon} />
+            return (
+              <div key={key(attack)} className={styles.attack}>
+                {defender?.mapPosition}. {defender?.name}
+                <div className={styles.attackInfo}>
+                  <div>
+                    {attack.stars}
+                    <img src={starIcon} className={styles.attackIcon} />
+                  </div>
+                  <div>{attack.destructionPercentage}%</div>
+                  <div>{getMinutesAndSecondsFromSeconds(attack.duration)}</div>
                 </div>
-                <div>{attack.destructionPercentage}%</div>
-                <div>{getMinutesAndSecondsFromSeconds(attack.duration)}</div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </>
+      )}
       {hasAttacked && (
         <img src={downArrowIcon} className={classNames(styles.expandIcon, isExpanded && styles.isExpanded)} />
       )}
