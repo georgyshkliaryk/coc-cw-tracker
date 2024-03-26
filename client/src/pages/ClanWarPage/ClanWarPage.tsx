@@ -25,8 +25,8 @@ const ClanWarPage: FC = () => {
       <div>War ends: {endTime}</div>
       <div>War starts: {preparationStartTime}</div>
       <div className={styles.clans}>
-        <ClanCard {...clan} totalAttacks={totalAttacks} />
-        <ClanCard {...opponent} totalAttacks={totalAttacks} />
+        <ClanCard {...clan} totalAttacks={totalAttacks} teamSize={teamSize} opponents={opponent.members}/>
+        <ClanCard {...opponent} totalAttacks={totalAttacks} teamSize={teamSize} opponents={clan.members}/>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import key from 'weak-key';
 import classNames from 'classnames';
-import { ClanMember, MemberAttack } from '../../../types';
+import { ClanMember, MemberAttack, MemberGeneralData } from '../../../types';
 import { TownHallsToIconsMap, maxStarsPossible } from '../../../constants/gameRelated';
 import starIcon from '../../../assets/star.svg';
 import attackIcon from '../../../assets/attack.svg';
@@ -27,7 +27,15 @@ const getStarsContributed = (attacks?: MemberAttack[]): number => {
   }, 0);
 };
 
-const Member: FC<ClanMember> = ({ name, mapPosition, attacks, townhallLevel }) => {
+const findMemberByTag = (tag: string, membersData: MemberGeneralData[]) => {
+  return membersData.find((member) => tag === member.tag);
+};
+
+interface MemberProps extends ClanMember {
+  opponentsGeneralData: MemberGeneralData[];
+}
+
+const Member: FC<MemberProps> = ({ name, mapPosition, attacks, townhallLevel, opponentsGeneralData }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const attacksDone = attacks?.length || 0;
@@ -65,19 +73,23 @@ const Member: FC<ClanMember> = ({ name, mapPosition, attacks, townhallLevel }) =
 
       {!!attacks?.length &&
         isExpanded &&
-        attacks.map((attack) => (
-          <div key={key(attack)} className={styles.attack}>
-            {attack.defenderTag}
-            <div className={styles.attackInfo}>
-              <div>
-                {attack.stars}
-                <img src={starIcon} className={styles.attackIcon} />
+        attacks.map((attack) => {
+          const defender = findMemberByTag(attack.defenderTag, opponentsGeneralData);
+
+          return (
+            <div key={key(attack)} className={styles.attack}>
+              {defender?.mapPosition}. {defender?.name}
+              <div className={styles.attackInfo}>
+                <div>
+                  {attack.stars}
+                  <img src={starIcon} className={styles.attackIcon} />
+                </div>
+                <div>{attack.destructionPercentage}%</div>
+                <div>{getMinutesAndSecondsFromSeconds(attack.duration)}</div>
               </div>
-              <div>{attack.destructionPercentage}%</div>
-              <div>{getMinutesAndSecondsFromSeconds(attack.duration)}</div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       {hasAttacked && (
         <img src={downArrowIcon} className={classNames(styles.expandIcon, isExpanded && styles.isExpanded)} />
       )}

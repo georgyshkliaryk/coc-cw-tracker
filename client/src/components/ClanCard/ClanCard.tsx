@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Clan } from '../../types';
+import { Clan, ClanMember } from '../../types';
 import styles from './ClanCard.module.scss';
 import { maxStarsPossible } from '../../constants/gameRelated';
 import starIcon from '../../assets/star.svg';
@@ -8,9 +8,23 @@ import WarMembers from '../WarMembers/WarMembers';
 
 interface ClanCardProps extends Clan {
   totalAttacks: number;
+  teamSize: number;
+  opponents?: ClanMember[];
 }
 
-const ClanCard: FC<ClanCardProps> = ({ name, tag, attacks, stars, expEarned, members, badgeUrls, totalAttacks }) => {
+const ClanCard: FC<ClanCardProps> = ({
+  name,
+  tag,
+  attacks,
+  stars,
+  expEarned,
+  members,
+  badgeUrls,
+  totalAttacks,
+  destructionPercentage,
+  teamSize,
+  opponents,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -23,7 +37,7 @@ const ClanCard: FC<ClanCardProps> = ({ name, tag, attacks, stars, expEarned, mem
       <div className={styles.stars}>
         <img src={starIcon} className={styles.icon} />
         <span>
-          {stars}/{totalAttacks * maxStarsPossible}
+          {stars}/{teamSize * maxStarsPossible}
         </span>
       </div>
       <div className={styles.attacks}>
@@ -32,8 +46,9 @@ const ClanCard: FC<ClanCardProps> = ({ name, tag, attacks, stars, expEarned, mem
           {attacks}/{totalAttacks}
         </span>
       </div>
+      <div className={styles.percentage}>{destructionPercentage}%</div>
       {expEarned && <div>Exp earned: {expEarned}</div>}
-      {!!members?.length && <WarMembers members={members} />}
+      {!!(members?.length && opponents?.length) && <WarMembers members={members} opponents={opponents} />}
     </div>
   );
 };

@@ -52,3 +52,9 @@ export interface ClanWarProps {
   clan: Clan;
   opponent: Clan;
 }
+
+export interface MemberGeneralData {
+  name: string;
+  tag: string;
+  mapPosition: number;
+}
