@@ -12,6 +12,6 @@
     "nodemon": "^3.1.0"
   },
   "scripts": {
-    "server": "nodemon src/server.js"
+    "server": "node api/index.js"
   }
 }
