@@ -1,0 +1,54 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.warState {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.endTime {
+    margin-top: 10px;
+}
+
+.teamSize {
+    margin-top: 5px;
+    color: grey;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.score {
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.clanScore {
+    &.isWinning {
+        color: green;
+    }
+
+    &.isLosing {
+        color: red;
+    }
+
+    &.isDraw {
+        color: #e0ac00;
+    }
+}
+
+.opponentScore {
+    &.isWinning {
+        color: red;
+    }
+
+    &.isLosing {
+        color: green;
+    }
+
+    &.isDraw {
+        color: #e0ac00;
+    }
+}

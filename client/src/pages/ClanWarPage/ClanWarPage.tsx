@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { currentWarUrl } from '../../constants/endpoints';
 import useFetchData from '../../hooks/useFetchData';
 import { getCurrentWarInfo } from './clanWarPageService';
-import styles from './ClanWarPage.module.scss';
 import ClanCard from '../../components/ClanCard/ClanCard';
+import ClanWarHeading from '../../components/ClanWarHeading/ClanWarHeading';
+import styles from './ClanWarPage.module.scss';
 
 const ClanWarPage: FC = () => {
   const { data } = useFetchData(() => getCurrentWarInfo(currentWarUrl));
@@ -12,21 +13,16 @@ const ClanWarPage: FC = () => {
     return null;
   }
 
-  const { clan, teamSize, attacksPerMember, opponent, startTime, state, endTime, preparationStartTime } = data;
+  const { clan, teamSize, attacksPerMember, opponent, ...restData } = data;
   const totalAttacks = teamSize * attacksPerMember;
+  const headingProps = { ...restData, teamSize };
 
   return (
     <div className={styles.container}>
-      <div>
-        {teamSize} x {teamSize}
-      </div>
-      <div>War status: {state}</div>
-      <div>War started: {startTime}</div>
-      <div>War ends: {endTime}</div>
-      <div>War starts: {preparationStartTime}</div>
+      <ClanWarHeading {...headingProps} clanScore={clan.stars} opponentScore={opponent.stars} />
       <div className={styles.clans}>
-        <ClanCard {...clan} totalAttacks={totalAttacks} teamSize={teamSize} opponents={opponent.members}/>
-        <ClanCard {...opponent} totalAttacks={totalAttacks} teamSize={teamSize} opponents={clan.members}/>
+        <ClanCard {...clan} totalAttacks={totalAttacks} teamSize={teamSize} opponents={opponent.members} />
+        <ClanCard {...opponent} totalAttacks={totalAttacks} teamSize={teamSize} opponents={clan.members} />
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Clan, ClanMember } from '../../types';
-import styles from './ClanCard.module.scss';
 import { maxStarsPossible } from '../../constants/gameRelated';
+import WarMembers from '../WarMembers/WarMembers';
 import starIcon from '../../assets/star.svg';
 import attackIcon from '../../assets/attack.svg';
 import desctructionIcon from '../../assets/desctruction.svg';
-import WarMembers from '../WarMembers/WarMembers';
+import styles from './ClanCard.module.scss';
 
 interface ClanCardProps extends Clan {
   totalAttacks: number;
@@ -18,7 +18,6 @@ const ClanCard: FC<ClanCardProps> = ({
   tag,
   attacks,
   stars,
-  expEarned,
   members,
   badgeUrls,
   totalAttacks,
@@ -51,7 +50,6 @@ const ClanCard: FC<ClanCardProps> = ({
         <img src={desctructionIcon} className={styles.icon} />
         {destructionPercentage}%
       </div>
-      {expEarned && <div>Exp earned: {expEarned}</div>}
       {!!(members?.length && opponents?.length) && <WarMembers members={members} opponents={opponents} />}
     </div>
   );

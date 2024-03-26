@@ -6,6 +6,8 @@ import { TownHallsToIconsMap, maxStarsPossible } from '../../../constants/gameRe
 import starIcon from '../../../assets/star.svg';
 import attackIcon from '../../../assets/attack.svg';
 import downArrowIcon from '../../../assets/down-arrow.svg';
+import desctructionIcon from '../../../assets/desctruction.svg';
+import timerIcon from '../../../assets/timer.svg';
 import styles from './Member.module.scss';
 
 const totalAttacks = 2;
@@ -14,7 +16,7 @@ const getMinutesAndSecondsFromSeconds = (time: number) => {
   const minutes = Math.floor(time / 60);
   const seconds = time - minutes * 60;
 
-  return `${minutes} min ${seconds} s`;
+  return `${minutes}m ${seconds}s`;
 };
 
 const getStarsContributed = (attacks?: MemberAttack[]): number => {
@@ -81,12 +83,18 @@ const Member: FC<MemberProps> = ({ name, mapPosition, attacks, townhallLevel, op
               <div key={key(attack)} className={styles.attack}>
                 {defender?.mapPosition}. {defender?.name}
                 <div className={styles.attackInfo}>
-                  <div>
+                  <div className={styles.infoItem}>
                     {attack.stars}
                     <img src={starIcon} className={styles.attackIcon} />
                   </div>
-                  <div>{attack.destructionPercentage}%</div>
-                  <div>{getMinutesAndSecondsFromSeconds(attack.duration)}</div>
+                  <div className={styles.infoItem}>
+                    {attack.destructionPercentage}%
+                    <img src={desctructionIcon} className={styles.attackIcon} />
+                  </div>
+                  <div className={styles.infoItem}>
+                    {getMinutesAndSecondsFromSeconds(attack.duration)}
+                    <img src={timerIcon} className={styles.attackIcon} />
+                  </div>
                 </div>
               </div>
             );

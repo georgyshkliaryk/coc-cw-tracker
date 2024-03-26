@@ -4,11 +4,24 @@ interface Badge {
   large: string;
 }
 
-enum ClanWarStateTypes {
+export enum ClanResultsTypes {
+  isWinning = 1,
+  isLosing,
+  isDraw,
+}
+
+export enum ClanWarStateTypes {
   notInWar = 'notInWar',
   preparation = 'preparation',
   inWar = 'inWar',
   warEnded = 'warEnded',
+}
+
+export const WarStateToTitleMap = {
+  [ClanWarStateTypes.inWar]: 'In war',
+  [ClanWarStateTypes.warEnded]: 'War ended',
+  [ClanWarStateTypes.preparation]: 'Preparation day',
+  [ClanWarStateTypes.notInWar]: 'Not in war',
 }
 
 export interface MemberAttack {
@@ -38,7 +51,6 @@ export interface Clan {
   clanLevel: number;
   attacks: number;
   stars: number;
-  expEarned: number;
   members?: ClanMember[];
 }
 
