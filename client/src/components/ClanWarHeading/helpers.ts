@@ -1,4 +1,4 @@
-import { ClanResultsTypes } from '../../types';
+import { ClanResultsTypes } from '@/types';
 import styles from './ClanWarHeading.module.scss';
 
 export const getClanResults = (clanStars: number, opponentStars: number): ClanResultsTypes => {

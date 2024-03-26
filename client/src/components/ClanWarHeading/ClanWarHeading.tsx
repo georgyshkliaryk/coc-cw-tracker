@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import { ClanWarStateTypes, WarStateToTitleMap } from '../../types';
-import { getTimeTillEnd } from '../../helpers/dates';
+import { ClanWarStateTypes, WarStateToTitleMap } from '@/types';
+import { getTimeTillEnd } from '@/helpers/dates';
 import { clanResultsToStylesMap, getClanResults } from './helpers';
 import styles from './ClanWarHeading.module.scss';
 

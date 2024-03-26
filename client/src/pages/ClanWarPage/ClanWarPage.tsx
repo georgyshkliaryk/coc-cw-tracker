@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { currentWarUrl } from '../../constants/endpoints';
-import useFetchData from '../../hooks/useFetchData';
+import { currentWarUrl } from '@/constants/endpoints';
+import useFetchData from '@/hooks/useFetchData';
+import { ClanWarStateTypes } from '@/types';
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
+import ClanCard from '@/components/ClanCard/ClanCard';
+import ClanWarHeading from '@/components/ClanWarHeading/ClanWarHeading';
 import { getCurrentWarInfo } from './clanWarPageService';
-import { ClanWarStateTypes } from '../../types';
-import ClanCard from '../../components/ClanCard/ClanCard';
-import ClanWarHeading from '../../components/ClanWarHeading/ClanWarHeading';
-import LoadingSpinner from '../../components/common/LoadingSpinner/LoadingSpinner';
 import styles from './ClanWarPage.module.scss';
 
 const ClanWarPage: FC = () => {

@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 import key from 'weak-key';
-import { ClanMember, MemberGeneralData } from '../../types';
-import Member from './Member/Member';
+import { ClanMember, MemberGeneralData } from '@/types';
+import Member from '@/components/WarMembers/Member/Member';
 import styles from './WarMembers.module.scss';
 
 const getOpponentsGeneralData = (members: ClanMember[]): MemberGeneralData[] => {

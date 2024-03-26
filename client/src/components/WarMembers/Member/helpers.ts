@@ -1,4 +1,4 @@
-import { MemberAttack, MemberGeneralData } from '../../../types';
+import { MemberAttack, MemberGeneralData } from '@/types';
 
 export const totalAttacks = 2;
 

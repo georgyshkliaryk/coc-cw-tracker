@@ -1,19 +1,19 @@
-import th1Icon from '../assets/townHallIcons/th1.png';
-import th2Icon from '../assets/townHallIcons/th2.png';
-import th3Icon from '../assets/townHallIcons/th3.png';
-import th4Icon from '../assets/townHallIcons/th4.png';
-import th5Icon from '../assets/townHallIcons/th5.png';
-import th6Icon from '../assets/townHallIcons/th6.png';
-import th7Icon from '../assets/townHallIcons/th7.png';
-import th8Icon from '../assets/townHallIcons/th8.png';
-import th9Icon from '../assets/townHallIcons/th9.png';
-import th10Icon from '../assets/townHallIcons/th10.png';
-import th11Icon from '../assets/townHallIcons/th11.png';
-import th12Icon from '../assets/townHallIcons/th12.webp';
-import th13Icon from '../assets/townHallIcons/th13.webp';
-import th14Icon from '../assets/townHallIcons/th14.webp';
-import th15Icon from '../assets/townHallIcons/th15.webp';
-import th16Icon from '../assets/townHallIcons/th16.webp';
+import th1Icon from '@/assets/townHallIcons/th1.png';
+import th2Icon from '@/assets/townHallIcons/th2.png';
+import th3Icon from '@/assets/townHallIcons/th3.png';
+import th4Icon from '@/assets/townHallIcons/th4.png';
+import th5Icon from '@/assets/townHallIcons/th5.png';
+import th6Icon from '@/assets/townHallIcons/th6.png';
+import th7Icon from '@/assets/townHallIcons/th7.png';
+import th8Icon from '@/assets/townHallIcons/th8.png';
+import th9Icon from '@/assets/townHallIcons/th9.png';
+import th10Icon from '@/assets/townHallIcons/th10.png';
+import th11Icon from '@/assets/townHallIcons/th11.png';
+import th12Icon from '@/assets/townHallIcons/th12.webp';
+import th13Icon from '@/assets/townHallIcons/th13.webp';
+import th14Icon from '@/assets/townHallIcons/th14.webp';
+import th15Icon from '@/assets/townHallIcons/th15.webp';
+import th16Icon from '@/assets/townHallIcons/th16.webp';
 
 export const maxStarsPossible = 3;
 

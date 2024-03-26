@@ -1,14 +1,14 @@
 import { FC, useState } from 'react';
 import key from 'weak-key';
 import classNames from 'classnames';
-import { ClanMember, MemberGeneralData } from '../../../types';
-import { TownHallsToIconsMap, maxStarsPossible } from '../../../constants/gameRelated';
+import { ClanMember, MemberGeneralData } from '@/types';
+import { TownHallsToIconsMap, maxStarsPossible } from '@/constants/gameRelated';
+import starIcon from '@/assets/star.svg';
+import attackIcon from '@/assets/attack.svg';
+import downArrowIcon from '@/assets/down-arrow.svg';
+import desctructionIcon from '@/assets/desctruction.svg';
+import timerIcon from '@/assets/timer.svg';
 import { findMemberByTag, getMinutesAndSecondsFromSeconds, getStarsContributed, totalAttacks } from './helpers';
-import starIcon from '../../../assets/star.svg';
-import attackIcon from '../../../assets/attack.svg';
-import downArrowIcon from '../../../assets/down-arrow.svg';
-import desctructionIcon from '../../../assets/desctruction.svg';
-import timerIcon from '../../../assets/timer.svg';
 import styles from './Member.module.scss';
 
 interface MemberProps extends ClanMember {

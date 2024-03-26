@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { Clan, ClanMember } from '../../types';
-import { maxStarsPossible } from '../../constants/gameRelated';
-import WarMembers from '../WarMembers/WarMembers';
-import starIcon from '../../assets/star.svg';
-import attackIcon from '../../assets/attack.svg';
-import desctructionIcon from '../../assets/desctruction.svg';
+import { Clan, ClanMember } from '@/types';
+import { maxStarsPossible } from '@/constants/gameRelated';
+import WarMembers from '@/components/WarMembers/WarMembers';
+import starIcon from '@/assets/star.svg';
+import attackIcon from '@/assets/attack.svg';
+import desctructionIcon from '@/assets/desctruction.svg';
 import styles from './ClanCard.module.scss';
 
 interface ClanCardProps extends Clan {

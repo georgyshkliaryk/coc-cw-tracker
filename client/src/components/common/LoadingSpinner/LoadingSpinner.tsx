@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import spinnerIcon from '../../../assets/spinner.svg';
+import spinnerIcon from '@/assets/spinner.svg';
 import styles from './LoadingSpinner.module.scss';
 
 const LoadingSpinner: FC = () => {

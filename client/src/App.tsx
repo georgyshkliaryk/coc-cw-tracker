@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ClanWarPage from './pages/ClanWarPage/ClanWarPage';
+import ClanWarPage from '@/pages/ClanWarPage/ClanWarPage';
 import styles from './App.module.scss';
 
 const App: FC = () => {

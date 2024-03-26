@@ -22,7 +22,7 @@ export const WarStateToTitleMap = {
   [ClanWarStateTypes.warEnded]: 'War ended',
   [ClanWarStateTypes.preparation]: 'Preparation day',
   [ClanWarStateTypes.notInWar]: 'Not in war',
-}
+};
 
 export interface MemberAttack {
   order: number;
