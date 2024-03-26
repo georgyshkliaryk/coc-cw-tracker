@@ -1,2 +1,2 @@
-const baseServerUrl = 'http://localhost:3000';
+const baseServerUrl = 'https://coc-cw-tracker-server-five.vercel.app/';
 export const currentWarUrl = `${baseServerUrl}/currentWar`;
