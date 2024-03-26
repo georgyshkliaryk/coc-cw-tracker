@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    justify-content: center;
 }
 
 .tag {
@@ -30,17 +31,11 @@
     align-items: center;
     gap: 5px;
     margin-top: 5px;
+    justify-content: center;
 }
 
 .icon {
     flex-shrink: 0;
     width: 16px;
     height: 16px;
-}
-
-.title,
-.stars,
-.attacks,
-.percentage {
-    justify-content: center;
 }

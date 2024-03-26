@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
 import key from 'weak-key';
 import classNames from 'classnames';
-import { ClanMember, MemberAttack, MemberGeneralData } from '../../../types';
+import { ClanMember, MemberGeneralData } from '../../../types';
 import { TownHallsToIconsMap, maxStarsPossible } from '../../../constants/gameRelated';
+import { findMemberByTag, getMinutesAndSecondsFromSeconds, getStarsContributed, totalAttacks } from './helpers';
 import starIcon from '../../../assets/star.svg';
 import attackIcon from '../../../assets/attack.svg';
 import downArrowIcon from '../../../assets/down-arrow.svg';
@@ -10,34 +11,19 @@ import desctructionIcon from '../../../assets/desctruction.svg';
 import timerIcon from '../../../assets/timer.svg';
 import styles from './Member.module.scss';
 
-const totalAttacks = 2;
-
-const getMinutesAndSecondsFromSeconds = (time: number) => {
-  const minutes = Math.floor(time / 60);
-  const seconds = time - minutes * 60;
-
-  return `${minutes}m ${seconds}s`;
-};
-
-const getStarsContributed = (attacks?: MemberAttack[]): number => {
-  if (!attacks?.length) {
-    return 0;
-  }
-  return attacks.reduce((acc, curr) => {
-    acc += curr.stars;
-    return acc;
-  }, 0);
-};
-
-const findMemberByTag = (tag: string, membersData: MemberGeneralData[]) => {
-  return membersData.find((member) => tag === member.tag);
-};
-
 interface MemberProps extends ClanMember {
   opponentsGeneralData: MemberGeneralData[];
+  isPreparation: boolean;
 }
 
-const Member: FC<MemberProps> = ({ name, mapPosition, attacks, townhallLevel, opponentsGeneralData }) => {
+const Member: FC<MemberProps> = ({
+  name,
+  mapPosition,
+  attacks,
+  townhallLevel,
+  opponentsGeneralData,
+  isPreparation,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const attacksDone = attacks?.length || 0;
@@ -61,16 +47,18 @@ const Member: FC<MemberProps> = ({ name, mapPosition, attacks, townhallLevel, op
           {mapPosition}. {name}
           {!!thIcon && <img className={styles.thIcon} src={thIcon} alt={`townhall ${townhallLevel}`} />}
         </div>
-        <div>
-          <div className={styles.logItem}>
-            <img src={attackIcon} className={styles.icon} />
-            {attacksDone}/{totalAttacks}
+        {!isPreparation && (
+          <div>
+            <div className={styles.logItem}>
+              <img src={attackIcon} className={styles.icon} />
+              {attacksDone}/{totalAttacks}
+            </div>
+            <div className={styles.logItem}>
+              <img src={starIcon} className={styles.icon} />
+              {starsContributed}/{maxStarsPossible * totalAttacks}
+            </div>
           </div>
-          <div className={styles.logItem}>
-            <img src={starIcon} className={styles.icon} />
-            {starsContributed}/{maxStarsPossible * totalAttacks}
-          </div>
-        </div>
+        )}
       </div>
 
       {!!attacks?.length && isExpanded && (

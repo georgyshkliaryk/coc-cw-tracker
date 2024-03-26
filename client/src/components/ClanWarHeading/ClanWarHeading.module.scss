@@ -8,7 +8,7 @@
     font-weight: bold;
 }
 
-.endTime {
+.timeInfo {
     margin-top: 10px;
 }
 
@@ -31,7 +31,7 @@
     }
 
     &.isLosing {
-        color: red;
+        color: #9f0000;
     }
 
     &.isDraw {
@@ -41,7 +41,7 @@
 
 .opponentScore {
     &.isWinning {
-        color: red;
+        color: #9f0000;
     }
 
     &.isLosing {

@@ -20,9 +20,10 @@ const getOpponentsGeneralData = (members: ClanMember[]): MemberGeneralData[] => 
 interface WarMembersProps {
   members: ClanMember[];
   opponents: ClanMember[];
+  isPreparation: boolean;
 }
 
-const WarMembers: FC<WarMembersProps> = ({ members, opponents }) => {
+const WarMembers: FC<WarMembersProps> = ({ members, opponents, isPreparation }) => {
   const opponentsGeneralData = getOpponentsGeneralData(opponents);
   const sortedMembers = useMemo(
     () =>
@@ -35,7 +36,12 @@ const WarMembers: FC<WarMembersProps> = ({ members, opponents }) => {
   return (
     <div className={styles.container}>
       {sortedMembers.map((member) => (
-        <Member {...member} key={key(member)} opponentsGeneralData={opponentsGeneralData} />
+        <Member
+          {...member}
+          key={key(member)}
+          opponentsGeneralData={opponentsGeneralData}
+          isPreparation={isPreparation}
+        />
       ))}
     </div>
   );

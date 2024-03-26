@@ -6,22 +6,23 @@ function useFetchData<T>(fetchFunction: () => Promise<T>): { data: T | null; isL
 
   useEffect(() => {
     let isSubscribed = true;
+    setIsLoading(true);
 
     const fetchData = async () => {
-      setIsLoading(true);
       const result = await fetchFunction();
 
       if (isSubscribed) {
         setData(result);
       }
-      setIsLoading(false);
     };
 
     fetchData();
+    setIsLoading(false);
 
     return () => {
       isSubscribed = false;
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {
