@@ -1,2 +1,2 @@
-const baseServerUrl = 'https://cocproxy.royaleapi.dev/v1';
+const baseServerUrl = 'https://coc-cw-tracker-server-five.vercel.app';
 export const currentWarUrl = `${baseServerUrl}/currentWar`;
