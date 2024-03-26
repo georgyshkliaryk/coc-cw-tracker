@@ -1,7 +1,6 @@
 import 'dotenv/config';
 
 export const PORT = process.env.PORT || 3000;
-export const HOST = process.env.HOST || 'localhost';
 export const API_SERVICE_URL = 'https://api.clashofclans.com/v1';
 export const AUTH_TOKEN = process.env.AUTH_TOKEN;
 

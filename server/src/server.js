@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import cors from 'cors';
-import { HOST, PORT, API_SERVICE_URL, AUTH_TOKEN, CLAN_ID } from './constants.js';
+import { PORT, API_SERVICE_URL, AUTH_TOKEN, CLAN_ID } from './constants.js';
 
 const corsOptions = {
   origin: '*',
@@ -41,6 +41,6 @@ app.use(
 );
 
 // Start the Proxy
-app.listen(PORT, HOST, () => {
-  console.log(`Starting Proxy at ${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Starting Proxy at port ${PORT}`);
 });
