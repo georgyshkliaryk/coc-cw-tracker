@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import CurrentWarPage from './components/CurrentWarPage/CurrentWarPage';
+import ClanWarPage from './pages/ClanWarPage/ClanWarPage';
 import styles from './App.module.scss';
 
 const App: FC = () => {
   return (
     <div className={styles.app}>
-      <CurrentWarPage />
+      <ClanWarPage />
     </div>
   );
 };

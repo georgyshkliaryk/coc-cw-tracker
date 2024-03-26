@@ -11,7 +11,7 @@ enum ClanWarStateTypes {
   warEnded = 'warEnded',
 }
 
-interface MemberAttack {
+export interface MemberAttack {
   order: number;
   attackerTag: string;
   defenderTag: string;
@@ -20,17 +20,17 @@ interface MemberAttack {
   duration: number;
 }
 
-interface ClanMember {
+export interface ClanMember {
   tag: string;
   name: string;
   mapPosition: number;
   townhallLevel: number;
   opponentAttacks: number;
-  bestOpponentAttack: MemberAttack;
-  attacks: MemberAttack[];
+  bestOpponentAttack?: MemberAttack;
+  attacks?: MemberAttack[];
 }
 
-interface Clan {
+export interface Clan {
   destructionPercentage: number;
   tag: string;
   name: string;
@@ -39,7 +39,7 @@ interface Clan {
   attacks: number;
   stars: number;
   expEarned: number;
-  members: ClanMember[];
+  members?: ClanMember[];
 }
 
 export interface ClanWarProps {

@@ -1,0 +1,43 @@
+.container {
+    width: 300px;
+    text-align: left;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: grey;
+}
+
+.badge {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.stars,
+.attacks {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.title,
+.stars,
+.attacks {
+    justify-content: center;
+}

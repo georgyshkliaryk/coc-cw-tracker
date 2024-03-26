@@ -1,0 +1,90 @@
+.card {
+    border: 1px solid #000;
+    padding: 10px 15px 20px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    position: relative;
+    outline: none;
+
+    &.cantAttack {
+        background-color: #d9d9d9;
+    }
+
+    &.hasAttacked {
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            background-color: #e5e5e5;
+
+            &.cantAttack {
+                background-color: #cccccc;
+            }
+        }
+    }
+}
+
+.title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logItem {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    &:last-child {
+        margin-top: 5px;
+    }
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.expandIcon {
+    height: 15px;
+    position: absolute;
+    bottom: 3px;
+
+    &.isExpanded {
+        transform: rotate(180deg);
+    }
+}
+
+.attack {
+    text-align: left;
+}
+
+.attackInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.attackIcon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    margin-left: 3px;
+}
+
+.thIcon {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+}
